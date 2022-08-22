@@ -1,0 +1,376 @@
+//header
+.header {
+    position: relative;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: 0.3s ease-out;
+    height: 100px;
+    padding: 25px;
+    @extend %clearfix;
+    @include screen('mobile') {
+        position: fixed;
+        width: 100%;
+        background-color: #2991cb;
+        height: 70px;
+        padding: 10px 15px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    }
+    @media(max-width:500px) {
+        padding: 15px 15px;
+    }
+    // &:before {
+    //     position: absolute;
+    //     content: '';
+    //     width: 100%;
+    //     height: 100%;
+    //     top: 0;
+    //     left: 0;
+    //     // background: #fff;
+    //     // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    //     pointer-events: none;
+    //     z-index: -1;
+    //     @include screen('mobile') {
+    //         height: 60px;
+    //     }
+    // }
+    // mobile btn for extend
+    %mobileCtrlBtn {
+        width: 60px !important;
+        height: 60px !important;
+        position: absolute;
+        top: 0px;
+        display: block;
+        font-size: 0em;
+        padding: 15px;
+        margin: 0;
+        min-width: auto;
+        min-height: auto;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        box-sizing: border-box;
+        @include screen('mobile') {
+            display: block !important;
+        }
+    }
+    >.container {
+        max-width: $container-max;
+        // max-width: 100%;
+        overflow: visible;
+        position: relative; // menu
+        display: flex;
+        align-items: center;
+        // @include screen('mobile'){
+        //     align-items:fl
+        // }
+        .sidebarCtrl {
+            display: none;
+            left: 0px;
+            @extend %mobileCtrlBtn;
+            span {
+                position: absolute;
+                background: $primaryColor;
+                width: 50%;
+                height: 3px;
+                top: 20px;
+                left: 50%;
+                margin-left: -25%;
+                display: block;
+                border-radius: 2px;
+                &:nth-child(2) {
+                    top: 28px;
+                }
+                &:nth-child(3) {
+                    top: 36px;
+                }
+            }
+        }
+        // search
+        .searchCtrl {
+            display: none;
+            right: 0px;
+            font-size: 0em;
+            @extend %mobileCtrlBtn;
+            &:before {
+                width: 40px;
+                height: 40px;
+                background: url(../images/basic/icon_search.png) no-repeat center center;
+                background-size: 28px;
+                opacity: 0.6;
+                content: '';
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                display: block;
+            }
+        }
+    }
+    .menu_btn{
+        display: none;
+        @include screen('tablet'){
+            display: block;
+            margin:0 20px 0 0;
+        }
+        @include screen('mobile'){
+            margin:0;
+        }
+        span{
+            width:28px;
+            height: 3px;
+            border-radius:1px;
+            background-color:#fff;
+            display:block;
+            margin-bottom: 6px;
+        }
+    }
+    h1 {
+        flex: 1 1 auto;
+        flex-basis: 540px;
+        max-width: 540px;
+        margin: 0 30px 0 0;
+        padding: 0 30px 0 0;
+        box-sizing: border-box;
+        border-right: 2px solid $primaryColor;
+        position: relative;
+        a {
+            display: inline-block;
+        }
+        img {
+            display: block;
+            max-width: 510px;
+            max-height: 60px;
+        }
+        @include screen('tablet') {
+            flex-basis: 60%;
+            max-width: 100%;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        @include screen('mobile') {
+            flex-basis: calc(100% - 80px);
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            text-align: left;
+            border-right: none;
+            img {
+                width: 100%;
+                height: auto;
+                max-height: 54px;
+                margin: 0px auto;
+                transform: scale(0.9);
+            }
+        }
+    }
+    .header_member {
+        flex: 1 1 auto;
+        flex-basis: 100%;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        @include screen('tablet') {
+            flex-basis: 40%;
+            max-width: 100%;
+        }
+        @include screen('mobile') {
+            flex-basis: 80px;
+            max-width: 100%;
+            flex-wrap: nowrap;
+        }
+        // webname
+        .webname {
+            flex: 1 1 auto;
+            color: #fff;
+            font-size: 1.375em;
+            font-family: 'Arya', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding-left: 0;
+            span {
+                display: block;
+                font-size: 0.875em;
+            }
+            @include screen('mobile') {
+                display: none;
+            }
+        }
+        // notification 通知
+        .notification {
+            flex: 0 0 auto;
+            flex-basis: 34px;
+            max-width: 100%;
+            margin: 0 30px 0 0;
+            position: relative;
+            @include screen('mobile') {
+                margin: 0 10px 0 0;
+            }
+            .pic {
+                width: 34px;
+                a {
+                    display: block;
+                }
+            }
+            .notification_content {
+                position: absolute;
+                right: -110px;
+                top: 50px;
+                width: 240px;
+                padding: 20px;
+                box-sizing: border-box;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                display: none;
+                @include screen('tablet') {
+                    right: 0;
+                }
+                .title {
+                    font-size: 1.125em;
+                    color: $primaryColor;
+                    margin: 0 0 10px;
+                    span {
+                        font-size: 0.875em;
+                        display: block;
+                    }
+                }
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style-type: none;
+                    font-size: 1em;
+                    li {
+                        a {
+                            display: block;
+                            padding: 10px 0 5px;
+                            border-bottom: 1px solid rgba(87, 90, 109, .7);
+                            em {
+                                font-style: normal;
+                                font-weight: bolder;
+                                padding: 0 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // member_block 會員 
+        .member_block {
+            flex: 0 0 auto;
+            flex-basis: 145px;
+            max-width: 100%;
+            position: relative;
+            @include screen('tablet') {
+                flex-basis: 30px;
+            }
+            .member_btn {
+                display: none;
+                @include screen('tablet') {
+                    display: block;
+                }
+                img {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+            .member_group {
+                display: flex;
+                align-items: center;
+                @include screen('tablet') {
+                    position: absolute;
+                    right: 0;
+                    top:50px;
+                    width: 150px;
+                    padding: 20px;
+                    justify-content: center;
+                    box-sizing: border-box;
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                    flex-wrap: wrap;
+                    display: none;
+                }
+                .pic {
+                    flex: 0 0 auto;
+                    flex-basis: 50px;
+                    max-width: 100%;
+                    margin-right: 10px;
+                    img {
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                    }
+                    @include screen('tablet') {
+                        flex: 1 1 auto;
+                        flex-basis: 100%;
+                        margin-right: 0;
+                        text-align: center;
+                    }
+                }
+                .content {
+                    flex: 1 1 auto;
+                    @include screen('tablet') {
+                        text-align: center;
+                        flex-basis: 100%;
+                    }
+                    .name {
+                        color: #fff;
+                        font-size: 1.25em;
+                        margin: 0 0 3px 0;
+                        font-weight: bolder;
+                        @include screen('tablet') {
+                            color: $primaryColor;
+                        }
+                    }
+                    .company {
+                        color: #fff;
+                        font-size: 0.938em;
+                        @include screen('tablet') {
+                            color: $primaryColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+// header fix
+// .header.fixed {
+//     position: fixed;
+//     width: 100%;
+//     right: 0;
+//     top: 0;
+//     box-shadow: rgba(0, 0, 0, 0.5) 0 0 25px;
+//     background: rgba(0, 0, 0, 0.75);
+//     z-index: 999;
+//     &:before {
+//         background: rgba(0, 0, 0, 0.35);
+//     }
+//     @include screen('mobile') {
+//         background: #fff;
+//     }
+//     .menu {
+//         > ul {
+//             > li {
+//                 > a {
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+//     .megamenu {
+//         > ul {
+//             > li {
+//                 > a {
+//                     color: #fff;
+//                 }
+//             }
+//         }
+//     }
+// }

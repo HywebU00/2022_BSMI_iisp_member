@@ -1,0 +1,109 @@
+.lp {
+    table {
+        td {
+            a {
+                @include aSetting_nocolor;
+            }
+            &.date {
+                text-align: center;
+                color: #666;
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+            &.num {
+                text-align: center;
+                color: #666;
+                @include screen('mobile') {
+                    text-align: left;
+                }
+            }
+        }
+    }
+    .list {
+        &>ul, ol {
+            list-style-type: none;
+            padding: 0;
+            
+            &>li {
+                padding: 0;
+               margin-bottom: 8px;
+                position: relative; // outline: 1px solid blue;
+                .tag {
+                    margin-left: 2em;
+                }
+                &>a {
+                    display: block;
+                   font-size: 1.125em;
+                    padding:20px 15px 20px 50px;
+                    position: relative;
+                    line-height: 1.45em;
+                    color: $color-word;
+                    background-color: #fff;
+                    border-radius: 10px;
+                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;  
+                    transition: .2s;
+                    &:hover {
+                        color: $aHover;
+                        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+                         transform: scale(1.01);
+                        
+                    }
+                    .num {
+                        width: 1.5em;
+                        text-align: center;
+                        position: absolute;
+                        top: 20px;
+                        left:10px;
+                        width:30px;
+                        height: 30px;
+                        background-color:#ddd;
+                        color:$primaryColor;
+                        border-radius:50%;
+                        
+                    }
+                }
+                span.dept {
+                    display: inline-block;
+                    font-size: .938em;
+                    @include screen("mobile") {
+                        display: block;
+                    }
+                }
+                time {
+                    
+                    color: #777;
+                    font-size: .938em;
+                }
+            }
+        }
+    }
+}
+
+// .album {
+//     margin: 1em auto;
+//     ul {
+//         @include li-reset;
+//         display:flex;
+//         flex-direction:row;
+//         justify-content:flex-start;
+//         align-items:stretch;
+//         flex-wrap:wrap;
+//         li{
+//             flex:0 0 30%;
+//             margin:0 1.66% 3%;
+//             display:flex;
+//             flex-direction:row;
+//             align-content: stretch;
+//             @include screen('tablet'){
+//                 flex:0 0 46%;
+//                 margin:0 2% 3%;
+//             }
+//             @include screen('mobile'){
+//                 flex:0 0 96%;
+//                 margin:0 3% 5%;
+//             }
+            
+//         }
+//     }
+// }
