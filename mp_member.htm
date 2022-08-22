@@ -41,7 +41,9 @@
                     </div>
                     <!-- 通知 -->
                     <div class="notification">
-                        <div class="pic"><a href="#"><img src="images/notice.png" alt="新通知"></a></div>
+                       <!--  當有新通知 <span class="remind">有新通知</span>的時候，請在class="pic"內加上 have_notification -->
+                        <div class="pic have_notification"><a href="#"><img src="images/notice.png" alt="新通知"></a><span class="remind">有新通知</span>
+                        </div>
                         <div class="notification_content">
                             <div class="title">新通知<span>Notification</span></div>
                             <ul>
@@ -285,6 +287,14 @@
                 </div>
             </div>
         </div>
+        <!-- 需要幫忙start -->
+        <div class="needhelp_block">
+            <div class="need_content">找不到合適的<span>檢測機構嗎</span>
+                <button type="button" class="orange_button">Need Help</button></div>
+            <div class="helpMr"><img src="images/help_Mr.png" alt=""></div>
+
+        </div>
+        <!-- 需要幫忙end -->
     </div>
     <a href="javascript:;" class="scrollToTop">回頁首</a>
     <!-- JQ -->

@@ -107,21 +107,21 @@
             }
         }
     }
-    .menu_btn{
+    .menu_btn {
         display: none;
-        @include screen('tablet'){
+        @include screen('tablet') {
             display: block;
-            margin:0 20px 0 0;
+            margin: 0 20px 0 0;
         }
-        @include screen('mobile'){
-            margin:0;
+        @include screen('mobile') {
+            margin: 0;
         }
-        span{
-            width:28px;
+        span {
+            width: 28px;
             height: 3px;
-            border-radius:1px;
-            background-color:#fff;
-            display:block;
+            border-radius: 1px;
+            background-color: #fff;
+            display: block;
             margin-bottom: 6px;
         }
     }
@@ -132,7 +132,7 @@
         margin: 0 30px 0 0;
         padding: 0 30px 0 0;
         box-sizing: border-box;
-        border-right: 2px solid $primaryColor;
+        border-right: 2px solid rgba(255, 255, 255, 0.5);
         position: relative;
         a {
             display: inline-block;
@@ -211,8 +211,40 @@
             }
             .pic {
                 width: 34px;
+                position: relative;
+                &.have_notification {
+                    a {
+                        animation-name: bell_rings;
+                        animation-iteration-count: infinite;
+                        animation-duration: 1s;
+                        @keyframes bell_rings {
+                            from {
+                                transform: rotateY(0deg);
+                            }
+                            to {
+                                transform: rotateY(180deg);
+                            }
+                        }
+                    }
+                }
                 a {
                     display: block;
+                    position: relative;
+                    img {
+                        width: 34px;
+                        height: 31px;
+                    }
+                }
+                .remind {
+                    font-size: 0;
+                    width: 12px;
+                    height: 12px;
+                    position: absolute;
+                    right: 5px;
+                    top: 0;
+                    border: 2px solid #4193D0;
+                    background-color: #F66800;
+                    border-radius: 50%;
                 }
             }
             .notification_content {
@@ -283,7 +315,7 @@
                 @include screen('tablet') {
                     position: absolute;
                     right: 0;
-                    top:50px;
+                    top: 50px;
                     width: 150px;
                     padding: 20px;
                     justify-content: center;
@@ -337,9 +369,7 @@
             }
         }
     }
-    
 }
-
 // header fix
 // .header.fixed {
 //     position: fixed;

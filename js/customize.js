@@ -16,7 +16,7 @@ $(function() {
         $('.consultation_results_lightbox').fadeOut();
         $('body').removeClass('fixed');
     })
-     // 分享按鈕 share
+    // 分享按鈕 share
     $('.function_panel .share').children('ul').hide();
     $('.function_panel .share .shareButton').click(function() {
         $(this).siblings('ul').stop(true, true).slideToggle();
@@ -29,21 +29,36 @@ $(function() {
         $(this).parent().parent('ul').hide();
     });
     // 左欄menu
-    $('.header .menu_btn a').click(function(){
+    $('.header .menu_btn a').click(function() {
         $('.main .left_block').fadeIn();
         $('body').addClass('fixed');
-        $('.main .left_block .leftblock_group').css('left','0');
+        $('.main .left_block .leftblock_group').css('left', '0');
     })
-    $('.main .left_block .overlay').click(function(){
+    $('.main .left_block .overlay').click(function() {
         $('.main .left_block').fadeOut();
         $('body').removeClass('fixed');
-        $('.main .left_block .leftblock_group').css('left','-280px');
+        $('.main .left_block .leftblock_group').css('left', '-280px');
     })
-    $('.main .left_block .leftblock_group .close a').click(function(){
+    $('.main .left_block .leftblock_group .close a').click(function() {
         $('.main .left_block').fadeOut();
         $('body').removeClass('fixed');
-        $('.main .left_block .leftblock_group').css('left','-280px');
+        $('.main .left_block .leftblock_group').css('left', '-280px');
     })
+    // 
+    $('.needhelp_block').click(function(){
+        $('.needhelp_block').css('right','15px');
+    })
+    // 點外面關閉
+    $(document).on('touchend click', function(e) {
+        var container = $(".header .search_btn, .function_panel .share, .needhelp_block, .notification"); //點這些以外的區塊
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            $('.function_panel .share ul').slideUp();
+            $('.header .search').slideUp();
+           $('.needhelp_block').css('right','-150px');
+            $('.notification .notification_content').slideUp();
+            //要被收起來的區塊
+        }
+    });
     // password_toggle
     var passShow = false;
     $('.password_toggle').each(function(index, el) {

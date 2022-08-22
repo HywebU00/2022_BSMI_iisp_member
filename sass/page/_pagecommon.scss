@@ -30,7 +30,7 @@
         background-position: right top;
         overflow: hidden;
         @include screen('mobile') {
-            width:90vw;
+            width: 90vw;
             padding: 50px 20px 30px;
             height: 90vh;
         }
@@ -149,7 +149,7 @@
                     align-items: center;
                     font-size: 1.25em;
                     margin-right: 10px;
-                    color:#fff;
+                    color: #fff;
                     box-sizing: border-box;
                     padding: 10px;
                     @include screen('xs_mobile') {
@@ -546,7 +546,6 @@
         }
     }
 }
-
 // 呈現結果
 .presentation_block {
     display: flex;
@@ -1252,6 +1251,70 @@
                     }
                 }
             }
+        }
+    }
+}
+.needhelp_block {
+    position: fixed;
+    right: -150px;
+    bottom: 0;
+    left: auto;
+    width: 250px;
+    height: 200px;
+    transition: .5s;
+    &:before {
+        content: '';
+        background-image: url('../images/question_mark.svg');
+        background-repeat: no-repeat;
+        background-size: 34px 58px;
+        background-position: 0 0;
+        position: absolute;
+        left: 42px;
+        top: -10px;
+        width: 34px;
+        height: 58px;
+    }
+    .helpMr {
+        width: 178px;
+        height: 153px;
+        position: absolute;
+        bottom: 0;
+    }
+    .need_content {
+        background-color: $primaryColor;
+        border-radius: 10px;
+        width: 144px;
+        color: #fff;
+        padding: 10px;
+        box-sizing: border-box;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 0.938em;
+        &:before {
+            content: '';
+            background-image: url('../images/question_mark.svg');
+            background-repeat: no-repeat;
+            background-size: 16px 27px;
+            background-position: 0 0;
+            position: absolute;
+            right: 5px;
+            top: 35px;
+            width: 16px;
+            height: 27px;
+            transform: rotate(5deg);
+        }
+        span {
+            font-size: 1.25em;
+            display: block;
+            margin-bottom: 10px
+        }
+        .orange_button {
+            position: relative;
+            z-index: 9;
         }
     }
 }
