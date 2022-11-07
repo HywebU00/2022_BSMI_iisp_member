@@ -16,6 +16,16 @@ $(function() {
         $('.consultation_results_lightbox').fadeOut();
         $('body').removeClass('fixed');
     })
+    //查詢 燈箱
+    $('.lightbox_block').hide();
+    $('.needhelp_block .orange_button').click(function() {
+        $('.lightbox_block').fadeIn();
+        $('body').addClass('fixed');
+    })
+    $('.lightbox_block .close a').click(function() {
+        $('.lightbox_block').fadeOut();
+        $('body').removeClass('fixed');
+    })
     // 分享按鈕 share
     $('.function_panel .share').children('ul').hide();
     $('.function_panel .share .shareButton').click(function() {
